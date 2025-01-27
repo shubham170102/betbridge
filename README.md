@@ -1,6 +1,6 @@
-# Sportsbetting Project with Colima
+# BetBridge Dev Setup
 
-This repository contains the Sportsbetting project, a FastAPI-based application that interacts with a PostgreSQL database to provide sports-related data. The project is containerized using Docker and managed using Colima.
+BetBridge is a FastAPI-based application that interacts with a PostgreSQL database to provide sports-related data. The project is containerized using Docker and managed using Colima.
 
 ---
 
