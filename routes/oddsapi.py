@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Depends, Query
 from sqlalchemy.orm import Session
-from db import SessionLocal, Sport, init_db
+from db import SessionLocal, Sport, init_db, Odds, Bookmaker
 import httpx
 from dotenv import load_dotenv
 import os
@@ -11,6 +11,7 @@ router = APIRouter()
 API_KEY = os.getenv("API_KEY")
 SPORTS_LIST_URL = "https://api.the-odds-api.com/v4/sports"
 
+
 # Dependency to get DB session
 def get_db():
     db = SessionLocal()
@@ -19,8 +20,10 @@ def get_db():
     finally:
         db.close()
 
+
 # Initialize the database
 init_db()
+
 
 @router.get("/sports")
 async def get_sports(db: Session = Depends(get_db)):
@@ -39,7 +42,9 @@ async def get_sports(db: Session = Depends(get_db)):
 
                 # Store sports data in the database
                 for sport in sports:
-                    existing_sport = db.query(Sport).filter(Sport.sport_key == sport["key"]).first()
+                    existing_sport = (
+                        db.query(Sport).filter(Sport.sport_key == sport["key"]).first()
+                    )
                     if not existing_sport:
                         # Extract individual fields from the API response
                         new_sport = Sport(
@@ -70,6 +75,7 @@ async def get_sports(db: Session = Depends(get_db)):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+
 @router.get("/odds/{sport_key}")
 async def get_odds(
     sport_key: str,
@@ -80,11 +86,12 @@ async def get_odds(
     date_format: str = Query("iso", description="Date format (e.g., iso, unix)")
 ):
     try:
+        # Check if the sport exists
         sport = db.query(Sport).filter(Sport.sport_key == sport_key).first()
         if not sport:
-            raise HTTPException(status_code=404, detail="Sport key '{sport_key}' not found")
-        
-        # Construct the API request URL
+            raise HTTPException(status_code=404, detail=f"Sport key '{sport_key}' not found.")
+
+        # Fetch odds data from the API
         url = f"{SPORTS_LIST_URL}/{sport_key}/odds"
         params = {
             "apiKey": API_KEY,
@@ -93,18 +100,53 @@ async def get_odds(
             "oddsFormat": odds_formats,
             "dateFormat": date_format,
         }
-        
+
         async with httpx.AsyncClient() as client:
             response = await client.get(url, params=params)
             response.raise_for_status()
+
             if response.status_code == 200:
                 odds_data = response.json()
+                arbitrage_opportunities = arbitrage_calculation(odds_data)
+                for game in odds_data:
+                    # Insert into Odds table
+                    existing_odds = db.query(Odds).filter(Odds.game_id == game.get('id')).first()
+                    if not existing_odds:
+                        new_odds = Odds(
+                            game_id=game.get('id'),
+                            sport_key=sport_key,
+                            home_team=game.get('home_team'),
+                            away_team=game.get('away_team'),
+                            commence_time=game.get('commence_time'),
+                        )
+                        db.add(new_odds)
+                        db.commit()
+                        db.refresh(new_odds)
+
+                        # Insert bookmakers data
+                        for bookmaker in game.get("bookmakers", []):
+                            for market in bookmaker.get("markets", []):
+                                for outcome in market.get("outcomes", []):
+                                    new_bookmaker = Bookmaker(
+                                        odds_id=new_odds.id,
+                                        bookmaker_key=bookmaker.get("key"),
+                                        bookmaker_title=bookmaker.get("title"),
+                                        last_update=bookmaker.get("last_update"),
+                                        market_type=market.get("key"),
+                                        market_outcome_name=outcome.get("name"),
+                                        market_outcome_price=outcome.get("price"),
+                                        market_point=outcome.get("point"),
+                                    )
+                                    db.add(new_bookmaker)
+
+                db.commit()
                 return {
                     "success": True,
                     "sport": sport_key,
                     "regions": regions,
                     "markets": markets,
-                    "data": odds_data,
+                    "odd_data": odds_data,
+                    "arbitrage_opportunities": arbitrage_opportunities,
                 }
             else:
                 return {
@@ -115,3 +157,56 @@ async def get_odds(
         raise HTTPException(status_code=e.response.status_code, detail=e.response.text)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+def arbitrage_calculation(odd_data):
+    opportunities = []
+
+    for game in odd_data:
+        markets = {}
+
+        # Iterate through bookmakers and extract market information
+        for bookmaker in game.get('bookmakers', []):
+            for market in bookmaker.get('markets', []):
+                market_key = market['key']
+                if market_key not in markets:
+                    markets[market_key] = []
+
+                for outcome in market.get('outcomes', []):
+                    price = outcome["price"]
+                    decimal_price = convert_to_decimal(price)
+                    markets[market_key].append({
+                        "bookmaker": bookmaker["title"],
+                        "outcome_name": outcome["name"],
+                        "price": decimal_price
+                    })
+
+        # Check arbitrage for each market
+        for market_key, outcomes in markets.items():
+            best_odds = {}
+            for outcome in outcomes:
+                name = outcome["outcome_name"]
+                if name not in best_odds or outcome["price"] > best_odds[name]["price"]:
+                    best_odds[name] = outcome
+
+            # Calculate implied probabilities
+            implied_prob = {name: 1 / data["price"] for name, data in best_odds.items()}
+            total_prob = sum(implied_prob.values())
+
+            # If total probability is less than 1, it's an arbitrage opportunity
+            if total_prob < 1:
+                opportunities.append({
+                    "game_id": game["id"],
+                    "market": market_key,
+                    "profit_percentage": (1 - total_prob) * 100,
+                    "best_odds": best_odds,
+                })
+
+    return opportunities
+
+
+def convert_to_decimal(price):
+    """Converts American odds to decimal odds."""
+    if price > 0:
+        return (price / 100) + 1
+    else:
+        return (100 / abs(price)) + 1

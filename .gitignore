@@ -1,3 +1,4 @@
 **/.env
 **/__pycache__
 pg_hba.conf
+**/.csv

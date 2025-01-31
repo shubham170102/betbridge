@@ -1,0 +1,115 @@
+Sport,Game ID,Market,Profit Percentage,Outcome,Bookmaker,Price
+NBA,b7f9752c63e2b5f1ef22d3d5d060f593,spreads,17.76%,Los Angeles Lakers,BetMGM,2.75
+NBA,b7f9752c63e2b5f1ef22d3d5d060f593,spreads,17.76%,Washington Wizards,FanDuel,2.1799999999999997
+NCAAB,dd3a47c43c2bb9a20f650a8d2c70f60a,h2h,12.16%,Middle Tennessee Blue Raiders,MyBookie.ag,4.6
+NCAAB,dd3a47c43c2bb9a20f650a8d2c70f60a,h2h,12.16%,New Mexico St Aggies,BetRivers,1.5128205128205128
+NCAAB,dd3a47c43c2bb9a20f650a8d2c70f60a,spreads,17.09%,Middle Tennessee Blue Raiders,DraftKings,3.3
+NCAAB,dd3a47c43c2bb9a20f650a8d2c70f60a,spreads,17.09%,New Mexico St Aggies,MyBookie.ag,1.900900900900901
+NCAAB,56711db15aea6344084c39adb1cdb18e,h2h,24.67%,Morehead St Eagles,DraftKings,4.4
+NCAAB,56711db15aea6344084c39adb1cdb18e,h2h,24.67%,Tennessee Tech Golden Eagles,MyBookie.ag,1.900900900900901
+NCAAB,3cccc9e50abbfe7c8856fd1d58477c61,h2h,19.14%,Louisiana Ragin' Cajuns,FanDuel,3.8
+NCAAB,3cccc9e50abbfe7c8856fd1d58477c61,h2h,19.14%,Texas State Bobcats,DraftKings,1.8333333333333335
+NCAAB,4739003cf1588475ccfdc687aa9d21ec,h2h,12.42%,South Alabama Jaguars,MyBookie.ag,1.9523809523809523
+NCAAB,4739003cf1588475ccfdc687aa9d21ec,h2h,12.42%,UL Monroe Warhawks,BetMGM,2.75
+NCAAB,864e045158342d7bfde851699e7a1d98,h2h,9.12%,Southern Utah Thunderbirds,DraftKings,5.7
+NCAAB,864e045158342d7bfde851699e7a1d98,h2h,9.12%,UT-Arlington Mavericks,Bovada,1.3636363636363638
+NCAAB,c7a1e07f263ba5b62b74f85edd8a1917,h2h,3.03%,Tarleton State Texans,MyBookie.ag,1.1200480192076832
+NCAAB,c7a1e07f263ba5b62b74f85edd8a1917,h2h,3.03%,Utah Tech Trailblazers,DraftKings,13.0
+NCAAB,b59fc2b30c7ebbf1f3a69ffd098a1127,h2h,27.15%,Eastern Kentucky Colonels,MyBookie.ag,3.65
+NCAAB,b59fc2b30c7ebbf1f3a69ffd098a1127,h2h,27.15%,Lipscomb Bisons,BetMGM,2.2
+NCAAB,901128cbb61570a15f2863b6364b6ae8,h2h,8.24%,Kennesaw St Owls,DraftKings,8.5
+NCAAB,901128cbb61570a15f2863b6364b6ae8,h2h,8.24%,Liberty Flames,MyBookie.ag,1.25
+NCAAB,bdfdf27198b736d150145695bba00612,h2h,3.33%,SE Missouri St Redhawks,MyBookie.ag,1.25
+NCAAB,bdfdf27198b736d150145695bba00612,h2h,3.33%,Tenn-Martin Skyhawks,DraftKings,6.0
+NCAAB,64298d421b67734a193fe0fa01b70926,h2h,5.76%,Idaho Vandals,MyBookie.ag,2.2
+NCAAB,64298d421b67734a193fe0fa01b70926,h2h,5.76%,Weber State Wildcats,Bovada,2.05
+NCAAB,fa6bc17de7fed87d0ccc113f260b90f9,h2h,14.18%,Cleveland St Vikings,Bovada,2.05
+NCAAB,fa6bc17de7fed87d0ccc113f260b90f9,h2h,14.18%,Fort Wayne Mastodons,BetRivers,2.7
+NHL,4f43f04e6337196e4aa385106e9f0ea2,spreads,56.82%,Minnesota Wild,DraftKings,2.9
+NHL,4f43f04e6337196e4aa385106e9f0ea2,spreads,56.82%,Montréal Canadiens,BetMGM,11.5
+NHL,ff8d3befa7f6e4018b84de25829080fe,spreads,16.21%,Ottawa Senators,BetMGM,3.3
+NHL,ff8d3befa7f6e4018b84de25829080fe,spreads,16.21%,Washington Capitals,Bovada,1.8695652173913042
+NHL,2fe8e5ac430073986c7f474dfe21ed10,h2h,5.25%,Detroit Red Wings,FanDuel,9.3
+NHL,2fe8e5ac430073986c7f474dfe21ed10,h2h,5.25%,Edmonton Oilers,BetMGM,1.1904761904761905
+Primera División - Argentina,270d49fbf0afeda80aa447f3c0344d54,h2h,47.05%,Argentinos Juniors,Bovada,2.1
+Primera División - Argentina,270d49fbf0afeda80aa447f3c0344d54,h2h,47.05%,CA Tigre BA,BetMGM,176.0
+Primera División - Argentina,270d49fbf0afeda80aa447f3c0344d54,h2h,47.05%,Draw,BetMGM,21.0
+Primera División - Argentina,00396d5f12c9706ac368832b1bea4198,h2h,56.35%,Atlético Tucuman,FanDuel,101.0
+Primera División - Argentina,00396d5f12c9706ac368832b1bea4198,h2h,56.35%,Central Córdoba,Bovada,2.4
+Primera División - Argentina,00396d5f12c9706ac368832b1bea4198,h2h,56.35%,Draw,FanDuel,101.0
+Primera División - Argentina,88a53572fdf034a14446d729424020c1,spreads,6.10%,Banfield,Bovada,2.1100000000000003
+Primera División - Argentina,88a53572fdf034a14446d729424020c1,spreads,6.10%,Barracas Central,BetOnline.ag,2.15
+Primera División - Argentina,a8ef273959e42a295c3e7884c93b1c4f,spreads,6.51%,Rosario Central,LowVig.ag,2.1799999999999997
+Primera División - Argentina,a8ef273959e42a295c3e7884c93b1c4f,spreads,6.51%,San Martin de San Juan,Bovada,2.1
+A-League,809ea079057d7d70e16ddf59d719dc80,h2h,19.93%,Sydney FC,Bovada,1.7142857142857144
+A-League,809ea079057d7d70e16ddf59d719dc80,h2h,19.93%,Western Sydney Wanderers,Bovada,4.6
+Belgium First Div,53b0827b6297d4e5e9b98a5fe183d954,spreads,4.49%,Anderlecht,LowVig.ag,2.1399999999999997
+Belgium First Div,53b0827b6297d4e5e9b98a5fe183d954,spreads,4.49%,Gent,Bovada,2.05
+EPL,b3e08ef3342b0358cea9c82eabbc68a9,spreads,9.69%,Brighton and Hove Albion,BetUS,2.1100000000000003
+EPL,b3e08ef3342b0358cea9c82eabbc68a9,spreads,9.69%,Nottingham Forest,MyBookie.ag,2.33
+EPL,dcd9ccf1cee3446c8efc8ed5d70763bc,spreads,7.39%,Bournemouth,BetUS,2.3200000000000003
+EPL,dcd9ccf1cee3446c8efc8ed5d70763bc,spreads,7.39%,Liverpool,Bovada,2.02
+EPL,c140e60a16a6b3763c14edf8447ff1d3,spreads,2.88%,Everton,BetOnline.ag,2.02
+EPL,c140e60a16a6b3763c14edf8447ff1d3,spreads,2.88%,Leicester City,BetUS,2.1
+EPL,426c5fb93830174e20de3f6325d5ad45,spreads,7.19%,Fulham,MyBookie.ag,2.16
+EPL,426c5fb93830174e20de3f6325d5ad45,spreads,7.19%,Newcastle United,BetUS,2.15
+EPL,c67645e3fa4dcc36a8ad2d585ea46dca,spreads,2.65%,Aston Villa,BetUS,2.09
+EPL,c67645e3fa4dcc36a8ad2d585ea46dca,spreads,2.65%,Wolverhampton Wanderers,LowVig.ag,2.02
+EPL,cb89a2512a95c00a953cfa0a6ce8485b,spreads,2.88%,Brentford,BetUS,2.1
+EPL,cb89a2512a95c00a953cfa0a6ce8485b,spreads,2.88%,Tottenham Hotspur,BetOnline.ag,2.02
+EPL,adea8e333c106f66a194808040fb6bb7,spreads,2.44%,Crystal Palace,Bovada,2.05
+EPL,adea8e333c106f66a194808040fb6bb7,spreads,2.44%,Manchester United,LowVig.ag,2.05
+EPL,0c766818d41310b014e4fb977ee7b93a,spreads,4.75%,Liverpool,MyBookie.ag,2.21
+EPL,0c766818d41310b014e4fb977ee7b93a,spreads,4.75%,Wolverhampton Wanderers,Bovada,2.0
+EPL,933ccbde327bdeb7c130af242ce25129,spreads,6.64%,Manchester United,Bovada,2.02
+EPL,933ccbde327bdeb7c130af242ce25129,spreads,6.64%,Tottenham Hotspur,MyBookie.ag,2.2800000000000002
+Ligue 1 - France,cb79ec5a6efffea7ab33c9b70d9185f3,spreads,2.27%,Nantes,Bovada,1.9523809523809523
+Ligue 1 - France,cb79ec5a6efffea7ab33c9b70d9185f3,spreads,2.27%,Stade de Reims,BetUS,2.15
+Ligue 1 - France,ed3873fb47d468c022f3f1613b81fcad,spreads,3.60%,Rennes,BetOnline.ag,2.1
+Ligue 1 - France,ed3873fb47d468c022f3f1613b81fcad,spreads,3.60%,Strasbourg,Bovada,2.05
+Ligue 2 - France,2ea50ecab51235ea88551e193a06b684,spreads,2.68%,Caen,LowVig.ag,2.06
+Ligue 2 - France,2ea50ecab51235ea88551e193a06b684,spreads,2.68%,Troyes,Bovada,2.05
+Ligue 2 - France,bc85370515f72e2e931b8ebac27265d8,spreads,2.15%,Lorient,Bovada,2.0
+Ligue 2 - France,bc85370515f72e2e931b8ebac27265d8,spreads,2.15%,Red Star,LowVig.ag,2.09
+Ligue 2 - France,a1728ed5738b4a96923240ab86c5efdb,spreads,5.06%,Guingamp,Bovada,1.9803921568627452
+Ligue 2 - France,a1728ed5738b4a96923240ab86c5efdb,spreads,5.06%,Paris FC,LowVig.ag,2.25
+Bundesliga - Germany,f7b64acb6b869cfaafc35a99d2e6d7bd,spreads,6.03%,Augsburg,BetUS,2.3
+Bundesliga - Germany,f7b64acb6b869cfaafc35a99d2e6d7bd,spreads,6.03%,FC St. Pauli,BetOnline.ag,1.9803921568627452
+Bundesliga - Germany,f2917646e67ad1ec6ca712a389da7e8e,spreads,2.28%,RB Leipzig,BetUS,2.25
+Bundesliga - Germany,f2917646e67ad1ec6ca712a389da7e8e,spreads,2.28%,Union Berlin,LowVig.ag,1.8771929824561404
+Serie A - Italy,ed6eccca4649279d16c320399e56a39b,spreads,2.78%,Lecce,Bovada,1.9803921568627452
+Serie A - Italy,ed6eccca4649279d16c320399e56a39b,spreads,2.78%,Parma,BetUS,2.1399999999999997
+Serie A - Italy,dfea1bec7325c3bf9f80c6a6888cb762,spreads,3.69%,Hellas Verona,Bovada,1.8928571428571428
+Serie A - Italy,dfea1bec7325c3bf9f80c6a6888cb762,spreads,3.69%,Monza,BetUS,2.3
+Serie A - Italy,cd53633bf471023255d31c20f046d600,spreads,4.55%,Atalanta BC,Bovada,2.0
+Serie A - Italy,cd53633bf471023255d31c20f046d600,spreads,4.55%,Torino,BetUS,2.2
+Serie A - Italy,c2d57b8090bfc802949c2ed39d60a0db,spreads,2.27%,Empoli,Bovada,1.9523809523809523
+Serie A - Italy,c2d57b8090bfc802949c2ed39d60a0db,spreads,2.27%,Juventus,BetUS,2.15
+Serie A - Italy,e4ebd27f5f98c5890d11e3d2eff2e179,spreads,4.75%,Fiorentina,BetUS,2.21
+Serie A - Italy,e4ebd27f5f98c5890d11e3d2eff2e179,spreads,4.75%,Genoa,Bovada,2.0
+Serie A - Italy,4b813b06b794a04dea5ff065af8cfbfc,spreads,7.28%,AS Roma,BetUS,2.24
+Serie A - Italy,4b813b06b794a04dea5ff065af8cfbfc,spreads,7.28%,Napoli,LowVig.ag,2.08
+Serie B - Italy,37f6191ab52ae61ea2bc778a37244b15,spreads,3.61%,Cittadella,LowVig.ag,2.0700000000000003
+Serie B - Italy,37f6191ab52ae61ea2bc778a37244b15,spreads,3.61%,Spezia,Bovada,2.08
+Liga MX,b09fa349dd65db4358acd019efac48d2,spreads,3.60%,Tigres,LowVig.ag,2.1
+Liga MX,b09fa349dd65db4358acd019efac48d2,spreads,3.60%,Toluca,Bovada,2.05
+Liga MX,005495458cf8d7ca3bcea2e8e77b9330,spreads,3.60%,Atlético San Luis,LowVig.ag,2.1
+Liga MX,005495458cf8d7ca3bcea2e8e77b9330,spreads,3.60%,Pumas,Bovada,2.05
+La Liga - Spain,34b834fcc1c0e0a2284d7b6c05df975d,spreads,5.88%,Leganés,LowVig.ag,2.13
+La Liga - Spain,34b834fcc1c0e0a2284d7b6c05df975d,spreads,5.88%,Rayo Vallecano,Bovada,2.12
+La Liga - Spain,decc78aee247f0f0446bbbbb171c8333,spreads,7.48%,Getafe,Bovada,2.08
+La Liga - Spain,decc78aee247f0f0446bbbbb171c8333,spreads,7.48%,Sevilla,BetUS,2.25
+La Liga - Spain,62128b9d8b2ab21deb0e14df7a4fbdcc,spreads,2.58%,Valladolid,BetUS,2.31
+La Liga - Spain,62128b9d8b2ab21deb0e14df7a4fbdcc,spreads,2.58%,Villarreal,Bovada,1.847457627118644
+La Liga - Spain,4fcee924c04a3b072c39eeb18a029f85,spreads,2.88%,Atlético Madrid,Bovada,2.02
+La Liga - Spain,4fcee924c04a3b072c39eeb18a029f85,spreads,2.88%,Mallorca,BetUS,2.1
+La Liga - Spain,5cc22cf5df3c15fb6ee5718af61708e2,spreads,7.45%,Celta Vigo,BetUS,2.35
+La Liga - Spain,5cc22cf5df3c15fb6ee5718af61708e2,spreads,7.45%,Valencia,Bovada,2.0
+La Liga - Spain,6ac10a8ae657530a50a7d0b89545746e,spreads,2.68%,Girona,BetUS,2.06
+La Liga - Spain,6ac10a8ae657530a50a7d0b89545746e,spreads,2.68%,Las Palmas,Bovada,2.05
+La Liga 2 - Spain,d5082bd0de54b658a6b2e44961390fa3,spreads,4.92%,CD Castellón,BetUS,2.05
+La Liga 2 - Spain,d5082bd0de54b658a6b2e44961390fa3,spreads,4.92%,SD Huesca,BetOnline.ag,2.16
+Premiership - Scotland,f118f1ff39cf3ede43319c2f4a9d6b75,spreads,3.12%,Dundee United,Bovada,1.9523809523809523
+Premiership - Scotland,f118f1ff39cf3ede43319c2f4a9d6b75,spreads,3.12%,Kilmarnock,LowVig.ag,2.19
+Swiss Superleague,f26a716d25ef9a657a75399e2564803a,spreads,2.90%,FC Winterthur,Bovada,2.08
+Swiss Superleague,f26a716d25ef9a657a75399e2564803a,spreads,2.90%,Yverdon Sport FC,LowVig.ag,2.04
