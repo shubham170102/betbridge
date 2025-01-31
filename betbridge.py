@@ -1,7 +1,9 @@
 import os
 import requests
 import time
+import csv
 from dotenv import load_dotenv
+from datetime import datetime
 
 load_dotenv()
 
@@ -81,14 +83,45 @@ def convert_to_decimal(price):
     else:
         return (100 / abs(price)) + 1
 
-def view_sports():
-    sports = get_sports()
-    if sports:
-        print("\nFound the following ongoing sports:\n")
-        for idx, sport in enumerate(sports, 1):
-            print(f"{idx}. {sport['title']} (Key: {sport['key']})")
-    else:
-        print("No ongoing sports found.")
+def export_to_csv(opportunities, sport_title):
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"arbitrage_opportunities_{sport_title}_{timestamp}.csv"
+
+    with open(filename, "w", newline="") as csvfile:
+        fieldnames = ["Game", "Market", "Profit Percentage", "Outcome", "Bookmaker", "Price"]
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+        writer.writeheader()
+        for opp in opportunities:
+            for outcome, details in opp["bookmakers"].items():
+                writer.writerow({
+                    "Game": f"{opp['home_team']} vs. {opp['away_team']}",
+                    "Market": opp["market"],
+                    "Profit Percentage": f"{opp['profit_percentage']:.2f}%",
+                    "Outcome": outcome,
+                    "Bookmaker": details["bookmaker"],
+                    "Price": details["price"]
+                })
+
+    print(f"\nResults exported to {filename}")
+
+def display_arbitrage_opportunities(opportunities, sport_title):
+    if not opportunities:
+        print(f"\nNo arbitrage opportunities found for {sport_title}.")
+        return
+
+    print(f"\n=== Arbitrage Opportunities Found for {sport_title} ===\n")
+    for opp in opportunities:
+        print(f"Game: {opp['home_team']} vs. {opp['away_team']}")
+        print(f"Market: {opp['market']}")
+        print(f"Profit Percentage: {opp['profit_percentage']:.2f}%")
+        for outcome, details in opp["bookmakers"].items():
+            print(f"  Bet on {outcome} with {details['bookmaker']} at odds {details['price']}")
+        print("-" * 50)
+
+    save_choice = input("\nWould you like to export these results to a CSV file? (y/n): ").strip().lower()
+    if save_choice == "y":
+        export_to_csv(opportunities, sport_title)
 
 def find_arbitrage_for_all_sports():
     sports = get_sports()
@@ -107,14 +140,7 @@ def find_arbitrage_for_all_sports():
             opportunities = calculate_arbitrage(odds_data)
             filtered_opps = [opp for opp in opportunities if opp["profit_percentage"] >= min_profit]
             if filtered_opps:
-                print(f"\n=== Arbitrage Opportunities Found for {sport['title']} ===\n")
-                for opp in filtered_opps:
-                    print(f"Game: {opp['home_team']} vs. {opp['away_team']}")
-                    print(f"Market: {opp['market']}")
-                    print(f"Profit Percentage: {opp['profit_percentage']:.2f}%")
-                    for outcome, details in opp["bookmakers"].items():
-                        print(f"  Bet on {outcome} with {details['bookmaker']} at odds {details['price']}")
-                    print("-" * 50)
+                display_arbitrage_opportunities(filtered_opps, sport["title"])
                 total_opportunities += len(filtered_opps)
 
     if total_opportunities == 0:
@@ -144,19 +170,7 @@ def find_arbitrage_for_specific_sport():
     if odds_data:
         opportunities = calculate_arbitrage(odds_data)
         filtered_opps = [opp for opp in opportunities if opp["profit_percentage"] >= min_profit]
-        if filtered_opps:
-            print(f"\n=== Arbitrage Opportunities Found for {selected_sport['title']} ===\n")
-            for opp in filtered_opps:
-                print(f"Game: {opp['home_team']} vs. {opp['away_team']}")
-                print(f"Market: {opp['market']}")
-                print(f"Profit Percentage: {opp['profit_percentage']:.2f}%")
-                for outcome, details in opp["bookmakers"].items():
-                    print(f"  Bet on {outcome} with {details['bookmaker']} at odds {details['price']}")
-                print("-" * 50)
-        else:
-            print(f"\nNo arbitrage opportunities found for {selected_sport['title']}.")
-    else:
-        print("No odds available.")
+        display_arbitrage_opportunities(filtered_opps, selected_sport["title"])
 
 def get_detailed_odds_for_sport():
     sports = get_sports()
