@@ -222,7 +222,7 @@ def main():
         choice = input("Enter your choice (1/2/3/4/5): ").strip()
 
         if choice == "1":
-            view_sports()
+            get_sports()
         elif choice == "2":
             find_arbitrage_for_all_sports()
         elif choice == "3":
