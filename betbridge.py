@@ -176,7 +176,7 @@ def display_arbitrage_opportunities(opportunities, sport_title):
 
 
 def find_arbitrage_for_all_sports():
-    sports = get_sports()
+    sports = get_sports_with_cache()
     if not sports:
         print("No sports to check for arbitrage.")
         return
@@ -209,7 +209,7 @@ def find_arbitrage_for_all_sports():
 
 
 def find_arbitrage_for_specific_sport():
-    sports = get_sports()
+    sports = get_sports_with_cache()
     if not sports:
         print("No sports to check for arbitrage.")
         return
@@ -241,7 +241,7 @@ def find_arbitrage_for_specific_sport():
 
 
 def get_detailed_odds_for_sport():
-    sports = get_sports()
+    sports = get_sports_with_cache()
     if not sports:
         print("No sports to check.")
         return
@@ -314,7 +314,7 @@ def display_scores(scores_data):
 
 
 def get_scores_for_sport():
-    sports = get_sports()
+    sports = get_sports_with_cache()
     if not sports:
         print("No sports available to check scores.")
         return
@@ -369,7 +369,7 @@ def main():
         choice = input("Enter your choice (1/2/3/4/5/6): ").strip()
 
         if choice == "1":
-            get_sports()
+            get_sports_with_cache()
         elif choice == "2":
             find_arbitrage_for_all_sports()
         elif choice == "3":

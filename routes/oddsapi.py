@@ -117,40 +117,7 @@ async def get_odds(
             if response.status_code == 200:
                 odds_data = response.json()
                 arbitrage_opportunities = arbitrage_calculation(odds_data)
-                for game in odds_data:
-                    # Insert into Odds table
-                    existing_odds = (
-                        db.query(Odds).filter(Odds.game_id == game.get("id")).first()
-                    )
-                    if not existing_odds:
-                        new_odds = Odds(
-                            game_id=game.get("id"),
-                            sport_key=sport_key,
-                            home_team=game.get("home_team"),
-                            away_team=game.get("away_team"),
-                            commence_time=game.get("commence_time"),
-                        )
-                        db.add(new_odds)
-                        db.commit()
-                        db.refresh(new_odds)
-
-                        # Insert bookmakers data
-                        for bookmaker in game.get("bookmakers", []):
-                            for market in bookmaker.get("markets", []):
-                                for outcome in market.get("outcomes", []):
-                                    new_bookmaker = Bookmaker(
-                                        odds_id=new_odds.id,
-                                        bookmaker_key=bookmaker.get("key"),
-                                        bookmaker_title=bookmaker.get("title"),
-                                        last_update=bookmaker.get("last_update"),
-                                        market_type=market.get("key"),
-                                        market_outcome_name=outcome.get("name"),
-                                        market_outcome_price=outcome.get("price"),
-                                        market_point=outcome.get("point"),
-                                    )
-                                    db.add(new_bookmaker)
-
-                db.commit()
+                
                 return {
                     "success": True,
                     "sport": sport_key,
